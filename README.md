@@ -19,10 +19,14 @@ Dentre as opções citadas, utilizaremos o Johnny-Five. Antes de começar, preci
 
 ## O que devemos instalar e configurar?
 
-Para rodar e testar o Javascript nas placas você precisará de duas ferramentas muito importantes (clique no link para acessar a página e baixar):
+Para rodar e testar o Javascript nas placas você precisará de duas ferramentas muito importantes (clique no link para acessar a página e baixar pelo site oficial):
 
 - [NodeJS]("https://nodejs.org/en/" "Link para download do NodeJS")
 - [NPM]("https://www.npmjs.com/get-npm" "Site oficial do NPM")
+
+> Tutoriais de instalação:
+> - [Como instalar no Windows](https://www.youtube.com/watch?v=l5B4yUr87uo)
+> - [Como instalar no Ubuntu](https://www.youtube.com/watch?v=AHWbz012kxI)
 
 ### Configuraçãoda IDE do Arduino para Arduino
 
@@ -69,7 +73,57 @@ Pesquise por esp8266 e instale a versão que aparece indicada por ESP8266 Commun
   <p align="center">Instalação necessária para programar no NodeMCU</p>
 </p>
 
-Agora precisará abrir o código referente ao protocolo de comunicação Firmata. Ele está localizado em **Arquivo > Exemplos > Firmata > StandardFirmataWifi**. Antes de compilar o código, **RETIRE O COMENTÁRIO** da linha 85 do arquivo *StandardFirmataWifi*, pois precisaremos disso para debugar e pegar o valor do IP da placa, depois **MODIFIQUE** as linhas 119 e 151 do arquivo *wifiConfig.h*. Lembrando que esse código deve ser compilado numa placa **NodeMCU**, pois a conexão será feita através do seu IP na rede. Os códigos devem 
+Agora precisará abrir o código referente ao protocolo de comunicação Firmata. Ele está localizado em **Arquivo > Exemplos > Firmata > StandardFirmataWifi**. Antes de compilar o código, **RETIRE O COMENTÁRIO** da linha 85 do arquivo *StandardFirmataWifi*, pois precisaremos disso para debugar e pegar o valor do IP da placa, depois **PREENCHA** as linhas 119 e 151 do arquivo *wifiConfig.h*, mudando o *your_network_name* para o nome do seu WiFi e *your_wpa_passphrase* para o nome da senha do seu WiFi. Lembrando que esse código deve ser compilado numa placa **NodeMCU**, pois a conexão será feita através do seu IP na rede. Os códigos devem 
 
-> [!IMPORTANT]
-> ANTES: //#define SERIAL_DEBUG
+> Configuração da StandardFirmataWifi
+> ```cpp
+> 85: #define SERIAL_DEBUG
+> ```
+> 
+> Configuração da wifiConfig.h
+> ```cpp
+> 119: char ssid[] = "your_network_name";
+> 151: char wpa_passphrase[] = "your_wpa_passphrase";
+> ``` 
+
+## Agora vamos programar (Arduino)!
+
+Crie uma paste onde ficará salvo o seu projeto, nela instalaremos todos os pacotes necessários para a conexão com a placa. Abra a pasta no terminal e utilize os comandos:
+
+```
+npm install johnny-five
+```
+
+Depois de instalado, uma pasta chamada *node_modules* surgirá e nela devem estar todos os pacotes que precisaremos para programar. Agora basta criar um arquivo chamado **arduino.js** na pasta para começar o nosso programa. O primeiro código será o **blink** em JavaScript, famoso Hello World do Arduino! Copie o código a seguir, para testar o blink no Led OnBoard da placa.
+
+```javascript
+//Para usar o módulo no seu aplicativo, use a função require para chamá-lo a partir de qualquer arquivo JavaScript:
+var five = require("johnny-five");
+//Cria objeto para conectar a placa
+var board = new five.Board();
+
+//Quando conseguir se conectar a placa, realiza os comandos dentro da 'function()'
+board.on("ready", function() {
+  // Cria um led no pino digital 13 do Arduino
+  var led = new five.Led(13);
+  // Pisca o led a cada 1000ms (1 segundo)
+  led.blink(1000);
+  });
+```
+
+Agora conecte o Arduino, com o código *StandardFirmata* compilado. Depois digite o comando a seguir no terminal, para executar o código com o NodeJS:
+
+```
+node arduino.js
+```
+
+Se tudo der certo, ele encontrará o arduino na porta USB e conectará na placa, indicando na tela que está disponível e conectado, logo após o Led OnBoard deve começar a piscar.
+
+<p align="center">
+  <img width="460" height="100" src="conexaoArduino.png">
+  <p align="center">Conexão com Arduino estabelecida através do NodeJS</p>
+</p>
+
+Parabéns, você acabou de executar um código JavaScript para Arduino!
+
+## Agora vamos programar (NodeMCU)!
