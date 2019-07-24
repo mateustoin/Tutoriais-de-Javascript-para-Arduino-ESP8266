@@ -69,4 +69,7 @@ Pesquise por esp8266 e instale a versão que aparece indicada por ESP8266 Commun
   <p align="center">Instalação necessária para programar no NodeMCU</p>
 </p>
 
-Agora precisará compilar o código referente ao protocolo de comunicação Firmata. Ele está localizado em **Arquivo > Exemplos > Firmata > StandardFirmataWifi**. Lembrando que esse código deve ser compilado numa placa **NodeMCU**.
+Agora precisará abrir o código referente ao protocolo de comunicação Firmata. Ele está localizado em **Arquivo > Exemplos > Firmata > StandardFirmataWifi**. Antes de compilar o código, **RETIRE O COMENTÁRIO** da linha 85 do arquivo *StandardFirmataWifi*, pois precisaremos disso para debugar e pegar o valor do IP da placa, depois **MODIFIQUE** as linhas 119 e 151 do arquivo *wifiConfig.h*. Lembrando que esse código deve ser compilado numa placa **NodeMCU**, pois a conexão será feita através do seu IP na rede. Os códigos devem 
+
+> [!IMPORTANT]
+> ANTES: //#define SERIAL_DEBUG
