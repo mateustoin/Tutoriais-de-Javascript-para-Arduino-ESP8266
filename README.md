@@ -94,7 +94,7 @@ Crie uma paste onde ficará salvo o seu projeto, nela instalaremos todos os paco
 npm install johnny-five
 ```
 
-Depois de instalado, uma pasta chamada *node_modules* surgirá e nela devem estar todos os pacotes que precisaremos para programar. Agora basta criar um arquivo chamado **arduino.js** na pasta para começar o nosso programa. O primeiro código será o **blink** em JavaScript, famoso Hello World do Arduino! Copie o código a seguir, para testar o blink no Led OnBoard da placa.
+Depois de instalado, uma pasta chamada *node_modules* surgirá e nela devem estar todos os pacotes que precisaremos para programar. Agora basta criar um arquivo chamado **exemplo1.js** na pasta para começar o nosso programa. O primeiro código será o **blink** em JavaScript, famoso Hello World do Arduino! Copie o código a seguir, para testar o blink no Led OnBoard da placa.
 
 ```javascript
 //Para usar o módulo no seu aplicativo, use a função require para chamá-lo a partir de qualquer arquivo JavaScript:
@@ -108,7 +108,7 @@ board.on("ready", function() {
   var led = new five.Led(13);
   // Pisca o led a cada 1000ms (1 segundo)
   led.blink(1000);
-  });
+});
 ```
 
 Agora conecte o Arduino, com o código *StandardFirmata* compilado. Depois digite o comando a seguir no terminal, para executar o código com o NodeJS:
