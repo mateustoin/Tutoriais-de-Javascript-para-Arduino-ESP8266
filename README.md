@@ -117,6 +117,13 @@ Agora conecte o Arduino, com o código *StandardFirmata* compilado. Depois digit
 node arduino.js
 ```
 
+Se tudo der errado, você encontrará uma mensagem informando que a placa não foi conectada. Verifique se o cabo está conectado corretamente e se o código do StandardFirmata está realmente compilado no arduino, depois tente novamente. Caso o erro persista, troque o cabo/arduino.
+
+<p align="center">
+  <img width="460" height="60" src="img/erroConexao.png">
+  <p align="center">Erro na conexão com Arduino</p>
+</p>
+
 Se tudo der certo, ele encontrará o arduino na porta USB e conectará na placa, indicando na tela que está disponível e conectado, logo após o Led OnBoard deve começar a piscar.
 
 <p align="center">
@@ -124,6 +131,41 @@ Se tudo der certo, ele encontrará o arduino na porta USB e conectará na placa,
   <p align="center">Conexão com Arduino estabelecida através do NodeJS</p>
 </p>
 
-Parabéns, você acabou de executar um código JavaScript para Arduino!
+Parabéns, você acabou de executar um código JavaScript para Arduino! Você pode começar a modificar e testar novos valores de intervalo para piscar. Também é possível enviar comandos através do terminal enquanto a placa está conectada, baste adicionar algumas linhas de código para que ele reconheça os comandos e os envie para a placa. Segue o código comentado:
+
+```javascript
+//Para usar o módulo no seu aplicativo, use a função require para chamá-lo a partir de qualquer arquivo JavaScript:
+var five = require("johnny-five");
+//Cria objeto para conectar a placa
+var board = new five.Board();
+
+//Quando conseguir se conectar a placa, realiza os comandos dentro da 'function()'
+board.on("ready", function() {
+  // Cria um led no pino digital 13 do Arduino
+  var led = new five.Led(13);
+
+  //Permite o acesso do led pelo Repl criado quando se inicia o node
+  this.repl.inject({
+      led: led
+  });
+});
+```
+
+Depois de executar o código novamente, a conexão estará estabelecida e você estará apto a entrar com comandos pelo terminal.
+
+<p align="center">
+  <img width="460" height="100" src="img/aguardaComandos.png">
+  <p align="center">Conexão com Arduino estabelecida através do NodeJS</p>
+</p>
+
+Para mais informações sobre quais comandos usar, a [documentação](http://johnny-five.io/api/led/) é completa e fornece todos os comandos na seção [API](http://johnny-five.io/api/led/#api). Segue alguns comandos que podem ser digitados no terminal para teste: 
+
+```javascript
+led.on() // Liga o led
+led.off() // Desliga o led
+led.toggle() // Inverte o estado do led
+led.strobe() // Pisca o led no modo estrobo
+led.strobe(qualquer_valor) // Muda o valor de intervalo de piscada do estrobo
+```
 
 ## Agora vamos programar (NodeMCU)!
