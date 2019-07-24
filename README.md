@@ -3,7 +3,7 @@
     ![Flowers](javascript.png "Teste") -->
 
 <p align="center">
-  <img width="460" height="300" src="javascript.png">
+  <img width="460" height="300" src="img/javascript.png">
 </p>
 
 Você sabia que dá pra usar Javascript para controlar um Arduino!? E uma ESP8266?! Pois é, também fiquei impressionado quando descobri! Para conseguir fazer isso, você só precisa compilar um código na sua placa, o StandardFirmata (para arduino) ou StandardFirmataWifi (para ESP8266) e pronto, a placa já está pronta para ser controlada através do Javascript.
@@ -35,7 +35,7 @@ Se utilizar um Arduino para a realização desse tutorial, precisará apenas ins
 Depois de instalar a IDE, agora precisará compilar o código referente ao protocolo de comunicação Firmata. Ele está localizado em **Arquivo > Exemplos > Firmata > StandardFirmata**. Lembrando que esse código deve ser compilado numa placa **Arduino**.
 
 <p align="center">
-  <img width="460" height="300" src="StandardFirmata.png">
+  <img width="460" height="300" src="img/StandardFirmata.png">
   <p align="center">Programa utilizado na placa para receber comandos Javascript</p>
 </p>
 
@@ -46,7 +46,7 @@ Depois carregue esse código na placa arduino e estará configurado para a próx
 Se utilizar uma NodeMCU para a realização desse tutorial, precisará instalar a [IDE do Arduino]("https://www.arduino.cc/en/Main/Software" "Página de download da IDE") para configurar a placa. Após a instalação, deverá instalar os pacotes para utilização da placa com ESP8266. Para isso, vá em **Arquivo > Preferências**.
 
 <p align="center">
-  <img width="460" height="300" src="ArquivoPreferencia.png">
+  <img width="460" height="300" src="img/ArquivoPreferencia.png">
   <p align="center">Janela Preferrências serve para adição de pacotes</p>
 </p>
 
@@ -55,21 +55,21 @@ Depois basta colar o link a seguir no campo *URLs Adicionais para Gereniadores d
 ```http://arduino.esp8266.com/stable/package_esp8266com_index.json```
 
 <p align="center">
-  <img width="460" height="300" src="Preferencias.png">
+  <img width="460" height="300" src="img/Preferencias.png">
   <p align="center">URL adicionada em preferências</p>
 </p>
 
 Para finalizar a configuração da NodeMCU, vá em **Ferramentas > Placa > Gerenciador de Placas...**
 
 <p align="center">
-  <img width="460" height="300" src="Placa.png">
+  <img width="460" height="300" src="img/Placa.png">
   <p align="center">Gerenciador de atualização e instalação de diversos tipos de placas</p>
 </p>
 
 Pesquise por esp8266 e instale a versão que aparece indicada por ESP8266 Community.
 
 <p align="center">
-  <img width="460" height="300" src="esp8266.png">
+  <img width="460" height="300" src="img/esp8266.png">
   <p align="center">Instalação necessária para programar no NodeMCU</p>
 </p>
 
@@ -120,7 +120,7 @@ node arduino.js
 Se tudo der certo, ele encontrará o arduino na porta USB e conectará na placa, indicando na tela que está disponível e conectado, logo após o Led OnBoard deve começar a piscar.
 
 <p align="center">
-  <img width="460" height="100" src="conexaoArduino.png">
+  <img width="460" height="100" src="img/conexaoArduino.png">
   <p align="center">Conexão com Arduino estabelecida através do NodeJS</p>
 </p>
 
