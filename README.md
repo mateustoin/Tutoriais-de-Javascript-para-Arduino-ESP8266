@@ -13,7 +13,7 @@ O [Firmata](https://github.com/firmata/protocol "Página sobre o protocolo") é 
 - [Johnny-Five](https://github.com/rwaldron/johnny-five "Biblioteca Johnny-Five")
 - [Breakout.js](http://breakoutjs.com/ "Biblioteca BreakoutJS")
 - [Firmata.js](https://github.com/firmata/firmata.js "Biblioteca Firmata.js")
-- [CylonJS](https://cylonjs.com/ "Biblioteca CylonJS")
+  - [CylonJS](https://cylonjs.com/ "Biblioteca CylonJS")
 
 Dentre as opções citadas, utilizaremos o Johnny-Five. Antes de começar, precisamos preparar as ferramentas necessárias para começar a programar.
 
@@ -28,7 +28,7 @@ Para rodar e testar o Javascript nas placas você precisará de duas ferramentas
 > - [Como instalar no Windows](https://www.youtube.com/watch?v=l5B4yUr87uo)
 > - [Como instalar no Ubuntu](https://www.youtube.com/watch?v=AHWbz012kxI)
 
-### Configuraçãoda IDE do Arduino para Arduino
+### Configuração da IDE do Arduino para Arduino
 
 Se utilizar um Arduino para a realização desse tutorial, precisará apenas instalar a [IDE do Arduino]("https://www.arduino.cc/en/Main/Software" "Página de download da IDE") para configurar a placa.
 
@@ -167,5 +167,25 @@ led.toggle() // Inverte o estado do led
 led.strobe() // Pisca o led no modo estrobo
 led.strobe(qualquer_valor) // Muda o valor de intervalo de piscada do estrobo
 ```
+
+> Exemplo **```led.on()```** e **```led.off()```**
+> <p align="center">
+>  <img width="460" height="300" src="gifs/on_off.gif">
+>  <p align="center">Funções ligam e desligam Led</p>
+> </p>
+
+> Exemplo **```led.toggle()```**.
+> Note que o efeito do ```led.on()``` e ```led.off()``` é igual, pois ele identifica o estado atual e o inverte, desligando quando está ligado e vice versa.
+> <p align="center">
+>  <img width="460" height="300" src="gifs/toggle.gif">
+>  <p align="center">Conexão com Arduino estabelecida através do     NodeJS</p>
+> </p>
+
+> Exemplo **```led.strobe()```**. 
+> Note que mais de uma vez o strobe foi acionado, com diferentes valores dentro dos parênteses.
+> <p align="center">
+>  <img width="460" height="300" src="gifs/strobe.gif">
+>  <p align="center">Conexão com Arduino estabelecida através do     NodeJS</p>
+> </p>
 
 ## Agora vamos programar (NodeMCU)!
