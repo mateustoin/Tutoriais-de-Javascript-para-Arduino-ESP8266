@@ -3,7 +3,7 @@
     ![Flowers](javascript.png "Teste") -->
 
 <p align="center">
-  <img width="460" height="300" src="img/javascript.png">
+  <img width="460" height="300" src="img/javascriptD.png">
 </p>
 
 Você sabia que dá pra usar Javascript para controlar um Arduino!? E uma ESP8266?! Pois é, também fiquei impressionado quando descobri! Para conseguir fazer isso, você só precisa compilar um código na sua placa, o StandardFirmata (para arduino) ou StandardFirmataWifi (para ESP8266) e pronto, a placa já está pronta para ser controlada através do Javascript.
@@ -13,7 +13,7 @@ O [Firmata](https://github.com/firmata/protocol "Página sobre o protocolo") é 
 - [Johnny-Five](https://github.com/rwaldron/johnny-five "Biblioteca Johnny-Five")
 - [Breakout.js](http://breakoutjs.com/ "Biblioteca BreakoutJS")
 - [Firmata.js](https://github.com/firmata/firmata.js "Biblioteca Firmata.js")
-  - [CylonJS](https://cylonjs.com/ "Biblioteca CylonJS")
+- [CylonJS](https://cylonjs.com/ "Biblioteca CylonJS")
 
 Dentre as opções citadas, utilizaremos o Johnny-Five. Antes de começar, precisamos preparar as ferramentas necessárias para começar a programar.
 
@@ -21,8 +21,8 @@ Dentre as opções citadas, utilizaremos o Johnny-Five. Antes de começar, preci
 
 Para rodar e testar o Javascript nas placas você precisará de duas ferramentas muito importantes (clique no link para acessar a página e baixar pelo site oficial):
 
-- [NodeJS]("https://nodejs.org/en/" "Link para download do NodeJS")
-- [NPM]("https://www.npmjs.com/get-npm" "Site oficial do NPM")
+- [NodeJS](https://nodejs.org/en/ "Link para download do NodeJS")
+- [NPM](https://www.npmjs.com/get-npm "Site oficial do NPM")
 
 > Tutoriais de instalação:
 > - [Como instalar no Windows](https://www.youtube.com/watch?v=l5B4yUr87uo)
