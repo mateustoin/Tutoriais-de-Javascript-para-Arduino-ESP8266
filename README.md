@@ -189,3 +189,67 @@ led.strobe(qualquer_valor) // Muda o valor de intervalo de piscada do estrobo
 > </p>
 
 ## Agora vamos programar (NodeMCU)!
+
+Crie uma paste onde ficará salvo o seu projeto, nela instalaremos todos os pacotes necessários para a conexão com a placa. Abra a pasta no terminal e utilize os comandos:
+
+```
+npm install johnny-five etherport-client
+```
+
+Depois de instalado, uma pasta chamada *node_modules* surgirá e nela estarão todos os pacotes que precisaremos para programar. Agora basta criar um arquivo chamado **exemploEsp1.js** na pasta para começar o nosso programa. O primeiro código será o **blink** em JavaScript, famoso Hello World do Arduino! Se você viu o tutorial de Arduino, note que o código é diferente e precisará do IP da placa. Copie o código a seguir, para testar o blink no Led OnBoard da placa.
+
+```javascript
+// Para usar o módulo no seu aplicativo, use a função require para chamá-lo a partir de qualquer arquivo JavaScript que tenha baixado as dependências
+const five = require('johnny-five');
+const {
+  EtherPortClient
+} = require('etherport-client');
+
+// Reúne as informações de porta em portInfo
+var portInfo = new EtherPortClient({
+    host: '192.168.15.35',
+    port: 3030
+  });
+
+// Cria objeto de placa com as informações de porta obtidas pelo IP e porta do dispositivo
+const board = new five.Board({
+  port: portInfo,
+  repl: false,
+});
+
+// Declara pino referente ao Led onboard da ESP8266
+const LED_PIN = 2;
+
+// Quando a placa conecta e está pronta para uso, define o ,led onboard do Led e começa a piscar em intervalos de 200ms
+board.on('ready', () => {
+  console.log("Conectado!");
+  const led = new five.Led(LED_PIN);
+  
+  led.blink(200);
+});
+```
+
+```
+node exemploEsp1.js
+```
+
+Se tudo der errado, você encontrará uma mensagem informando que a placa não foi conectada. Verifique se o cabo está conectado corretamente e se o código do StandardFirmata está realmente compilado no arduino, depois tente novamente. Caso o erro persista, troque o cabo/arduino.
+
+<p align="center">
+  <img width="460" height="60" src="img/erroEsp8266.png">
+  <p align="center">Erro na conexão com Arduino</p>
+</p>
+
+Se tudo der certo, ele encontrará o arduino na porta USB e conectará na placa, indicando na tela que está disponível e conectado, logo após o Led OnBoard deve começar a piscar.
+
+<p align="center">
+  <img width="460" height="80" src="img/conexaoEsp8266.png">
+  <p align="center">Conexão com Arduino estabelecida através do NodeJS</p>
+</p>
+
+Você pode visitar o tutorial feito para Arduino e dar uma olhada em algumas funções que podem ser utilizadas com o Led. Note que a forma de conexão com a ESP8266 é diferente, utilizando o EtherportClient. Isso é necessário pois o código *StandardFirmataWiFi* funciona como um TCP Server, então precisamos de um TCP Client para acessá-lo. Além disso, com isso podemos acessar a placa através de outros computadores na rede, o que abre possibilidade para diversas aplicações remotas.
+
+<p align="center">
+  <img width="460" height="300" src="gifs/esp8266.gif">
+  <p align="center">Conexão com ESP8266 estabelecida através do código anterior</p>
+</p>
