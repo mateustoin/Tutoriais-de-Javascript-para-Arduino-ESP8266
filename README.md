@@ -237,7 +237,7 @@ Se tudo der errado, você encontrará uma mensagem informando que a placa não f
 
 <p align="center">
   <img width="460" height="60" src="img/erroEsp8266.png">
-  <p align="center">Erro na conexão com Arduino</p>
+  <p align="center">Erro na conexão com ESP8266</p>
 </p>
 
 Se tudo der certo, ele encontrará o arduino na porta USB e conectará na placa, indicando na tela que está disponível e conectado, logo após o Led OnBoard deve começar a piscar.
@@ -247,9 +247,9 @@ Se tudo der certo, ele encontrará o arduino na porta USB e conectará na placa,
   <p align="center">Conexão com Arduino estabelecida através do NodeJS</p>
 </p>
 
-Você pode visitar o tutorial feito para Arduino e dar uma olhada em algumas funções que podem ser utilizadas com o Led. Note que a forma de conexão com a ESP8266 é diferente, utilizando o EtherportClient. Isso é necessário pois o código *StandardFirmataWiFi* funciona como um TCP Server, então precisamos de um TCP Client para acessá-lo. Além disso, com isso podemos acessar a placa através de outros computadores na rede, o que abre possibilidade para diversas aplicações remotas.
+Você pode visitar o [tutorial](https://medium.com/@mateustoin/programando-em-javascript-para-arduino-%C3%A9-poss%C3%ADvel-74f0a5f46ed3) feito para Arduino e dar uma olhada em algumas funções que podem ser utilizadas com o Led. Note que a forma de conexão com a ESP8266 é diferente, utilizando o [EtherportClient](https://www.npmjs.com/package/etherport-client). Isso é necessário pois o código *StandardFirmataWiFi* funciona como um TCP Server, então precisamos de um TCP Client para acessá-lo. Além disso, com isso podemos acessar a placa através de outros computadores na rede, o que abre possibilidade para diversas aplicações remotas.
 
 <p align="center">
   <img width="460" height="300" src="gifs/esp8266.gif">
-  <p align="center">Conexão com ESP8266 estabelecida através do código anterior</p>
+  <p align="center">Conexão com ESP8266 estabelecida através do código exemploEsp1.js</p>
 </p>
