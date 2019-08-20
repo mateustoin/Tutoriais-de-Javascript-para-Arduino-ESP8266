@@ -1,4 +1,4 @@
-# Lista de Tutoriais de JavaScript para IoT
+# Lista de tutoriais JavaScript para IoT
 
 Segue a lista de tutoriais para desenvolvimento de dispositivos IoT com Javascript. Os tutoriais apresentados são introdutórios e apresentam a união de diversas tecnologias para conexão de dispositivos de hardware como *Arduino*, *ESP8266*, entre vários outros modelos compatíveis.
 
