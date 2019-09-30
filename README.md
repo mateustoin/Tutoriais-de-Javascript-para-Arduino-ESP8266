@@ -5,7 +5,7 @@ Segue a lista de tutoriais para desenvolvimento de dispositivos IoT com Javascri
 - [Javascript para Arduino e ESP8266](javascriptEmbarcado.md)
 - [Conexão de Arduino e ESP8266 com Firebase](Firebase.md)
 
-## Ferramentas utilizadas no tutorial
+## Ferramentas utilizadas nos tutoriais
 
 Segue as ferramentas utilizadas para realização dos tutoriais. Mais explicações podem ser encontradas nos próprios tutoriais.
 
@@ -15,4 +15,4 @@ Segue as ferramentas utilizadas para realização dos tutoriais. Mais explicaç�
   - [aws-sdk](https://www.npmjs.com/package/aws-sdk)
   - [Etherport-client](https://www.npmjs.com/package/etherport-client)
 
-- [VSCode (Editor de texto)](https://code.visualstudio.com/)
+-  [VSCode (Editor de texto)](https://code.visualstudio.com/)
